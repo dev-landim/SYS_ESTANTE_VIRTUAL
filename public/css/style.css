@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Matangi:wght@300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* reset box-sizing global (ajuda a calcular larguras corretamente) */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5)), url('/imagens/backgroundimage.jpg');
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(10px);
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    /* garante altura cheia */
+}
+
+#adminContent {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #ffecb3;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.85);
+    padding: 28px 36px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    width: 420px;
+    height: 80vh;
+    /* ocupa 80% da altura da tela */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* adiciona barra de rolagem se necessário */
+}
+
+
+.title {
+    text-align: center;
+    margin-bottom: 60px;
+    margin-top: 30px;
+    font-size: 37px;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 15px;
+    font-weight: 600;
+    font-size: 32px;
+    text-align: center;
+    color: #2f1d15;
+}
+
+/* padrão para cada linha (reaproveita para select e input) */
+.form-group {
+    margin-top: -15px;
+    margin-bottom: 18px;
+    width: 100%;
+}
+
+.form-group label {
+    font-weight: 500;
+    font-size: 15px;
+    color: #2f1d15c1;
+    display: block;
+    margin-bottom: 2px;
+}
+
+/* Define estilo comum para inputs e selects */
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 15px;
+    transition: box-shadow .15s ease, border-color .15s ease;
+}
+
+/* foco visual */
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #bda79a;
+    box-shadow: 0 0 0 4px rgba(189, 167, 154, 0.08);
+}
+
+/* botão */
+button,
+.logout-btn {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    width: 90%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2f1d15;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 18px;
+    transition: background-color .3s ease;
+}
+
+button:hover,
+.logout-btn:hover {
+    background-color: #39261f;
+}
+
+p {
+    font-size: 14px;
+    color: #2f1d15c1;
+    text-align: center;
+    margin-top: 10px;
+}
+
+a {
+    color: #2853c8;
+}
+
+a:hover {
+    text-decoration: underline;
+}
