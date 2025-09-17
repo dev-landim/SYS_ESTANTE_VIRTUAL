@@ -24,13 +24,6 @@ body {
     /* garante altura cheia */
 }
 
-#adminContent {
-    display: none;
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #ffecb3;
-}
-
 .container {
     background-color: rgba(255, 255, 255, 0.85);
     padding: 28px 36px;

@@ -8,7 +8,8 @@
 }
 
 body {
-     padding-top: 80px; /* Espaço para o cabeçalho fixo */
+    padding-top: 80px;
+    /* Espaço para o cabeçalho fixo */
     font-family: 'Poppins', sans-serif;
     background-size: cover;
     background-position: center;
@@ -24,6 +25,7 @@ body {
     min-height: 100vh;
     /* garante altura cheia */
 }
+
 .main-header {
     position: fixed;
     top: 0;
@@ -34,14 +36,16 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(6px);
-    border-bottom: 2px solid #ffffff33;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(3px);
+    border-bottom: 1px solid #ffffff33;
     color: #fff;
 }
 
 .logo h1 {
-    font-size: 24px;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 700;
     margin: 0;
 }
 
@@ -50,12 +54,13 @@ body {
     gap: 15px;
 }
 
-.btn-admin,
-.logout-btn {
+.btn-admin {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
     padding: 8px 16px;
     border: none;
     border-radius: 5px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -70,19 +75,189 @@ body {
 }
 
 .logout-btn {
-    background-color: #dc3545;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    width: 80px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #a71d2a;
     color: white;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
     text-decoration: none;
     display: inline-block;
+    transition: background-color .3s ease;
 }
+
 
 .logout-btn:hover {
-    background-color: #a71d2a;
+    background-color: #2f1d15;
 }
 
-#adminContent {
-    display: none;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container h1 {
+    color: #fff;
+    font-size: 25px;
+    margin-bottom: 2px;
+    margin-top: -230px;
+    text-align: center;
+    align-items: center;
+}
+
+.container .frase {
+    color: #fff;
+    font-size: 16px;
+    margin-top: 0;
+    color: #fff;
+    text-align: center;
+}
+
+.container .toolbar {
+    display: flex;
+    justify-content: center;
+    /* centraliza input + botão */
+    align-items: center;
+    gap: 10px;
+    /* espaço entre input e botão */
     margin-top: 20px;
+}
+
+.container .toolbar input {
+    width: 250px;
+    padding: 8px 12px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 14px;
+}
+
+.container .pesquisar {
+    font-family: 'Poppins', sans-serif;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    background-color: #007bff;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.container .pesquisar:hover {
+    background-color: #0056b3;
+}
+
+/* --- Grid de Exemplares --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.card-body {
     padding: 15px;
-    background-color: #ffecb3;
+}
+
+.card-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.card-actions {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: flex;
+    gap: 5px;
+}
+
+.action-btn {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-btn {
+    background-color: #2980b9;
+}
+
+.delete-btn {
+    background-color: #c0392b;
+}
+
+/* --- Modal --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal-content img {
+    max-width: 150px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }

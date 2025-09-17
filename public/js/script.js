@@ -24,8 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Verifica se o usuário é um administrador.
                 if (data.tipo === 'administrador') {
                     // Se for, exibe o painel de administrador.
-                    const adminContentDiv = document.getElementById('adminContent');
-                    adminContentDiv.style.display = 'block';
+                    const adminbutton = document.getElementById('btn-admin');
+
                 }
             }
         })
