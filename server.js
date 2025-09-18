@@ -60,7 +60,7 @@ server.get('/api/user', checkUserLogado, (req, res) => {
 });
 
 // Rota de Cadastro (POST)
-server.post('/cadastrar', async (req, res) => {
+server.post('/cadastrar', async(req, res) => {
     const { nome, email, senha, tipo } = req.body;
 
     console.log('Dados recebidos para cadastro:', { nome, email, tipo });
@@ -82,7 +82,7 @@ server.post('/cadastrar', async (req, res) => {
 
         // Inserir o novo usuário no banco de dados com a senha criptografada.
         // O uso de '?' evita SQL Injection.
-        
+
         // Note que 'tipo' vem do formulário e pode ser 'cliente' ou 'administrador'.
         const sql = 'INSERT INTO usuarios (nome, email, senha, tipo) VALUES (?, ?, ?, ?)'
         const values = [nome, email, senhaHash, tipo]
@@ -93,11 +93,11 @@ server.post('/cadastrar', async (req, res) => {
                 return res.status(500).send('Erro no servidor ao tentar cadastrar.');
             }
             return res.status(201).send('Usuário cadastrado com sucesso!');
-             
+
         });
         // Redireciona para a página de login após o cadastro.
         res.redirect('/login.html');
-       
+
 
     } catch (error) {
         console.error('Erro ao cadastrar usuário:', error);
@@ -107,7 +107,7 @@ server.post('/cadastrar', async (req, res) => {
 
 
 // Rota de Login (POST)
-server.post('/login', async (req, res) => {
+server.post('/login', async(req, res) => {
     const { email, senha } = req.body;
 
     try {
@@ -170,4 +170,15 @@ server.get('/logout', (req, res) => {
 */
 server.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
+});
+
+// Rota para buscar exemplares no banco de dados
+server.get('/api/exemplares', checkUserLogado, async(req, res) => {
+    try {
+        const [rows] = await conexaoBanco.query('SELECT * FROM exemplares');
+        res.json(rows);
+    } catch (error) {
+        console.error('Erro ao buscar exemplares:', error);
+        res.status(500).json({ erro: 'Erro ao buscar exemplares' });
+    }
 });
